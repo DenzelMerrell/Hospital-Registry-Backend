@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-// const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
 //require routes 
 const patients = require('./routes/patients.js');
@@ -24,6 +24,6 @@ app.use('/medicines', medicines);
 app.use('/doctors', doctors);
 app.use('/filter', filter);
 
-app.listen(5000, () => {
+app.listen(port, () => {
     console.log("server has started on port 5000");
 });
