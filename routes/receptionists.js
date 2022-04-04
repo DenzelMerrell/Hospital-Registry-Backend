@@ -35,12 +35,28 @@ router.get('/findId:id', async function (req, res) {
     }
 })
 
-router.get('/findName', async function (req, res) {
+router.get('/findName:name', async function (req, res) {
     try {
-        let { fname, lname } = req.body;
+        let { name } = req.params;
+        let fname, lname;
         let stuff;
 
-        if (lname == null) {
+        if (name.includes(" ")) {
+            const names = name.split(" ");
+
+            if (names.length > 2) {
+                //error
+            }
+            else {
+                fname = names[0];
+                lname = names[1];
+            }
+        }
+        else {
+            fname = name;
+        }
+
+        if (!lname) {
             fname = `${fname}%`;
             stuff = await pool.query(
                 `SELECT * FROM employees 
