@@ -6,6 +6,7 @@ let router = express.Router();
 
 
 router.get('/all', async (req, res) => {
+    res.send("From the backend after patients/all search");
     try {
         //await pool.connect();
         const stuff = await pool.query("SELECT * FROM patients");
