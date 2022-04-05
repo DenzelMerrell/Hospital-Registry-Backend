@@ -6,6 +6,7 @@ let router = express.Router();
 
 
 router.get('/all', async (req, res) => {
+    response.setHeader('Access-Control-Allow-Credentials', 'true');
     res.send("From the backend after patients/all search");
     try {
         //await pool.connect();
