@@ -13,7 +13,7 @@ const doctors = require('./routes/doctors.js');
 const filter = require('./routes/filter.js');
 
 //middleware
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 
 app.use('/patients', patients);
