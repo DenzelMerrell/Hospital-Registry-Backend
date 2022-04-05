@@ -1,3 +1,4 @@
+const { response } = require("express");
 const express = require("express");
 const pool = require('../db.js');
 
@@ -6,7 +7,17 @@ let router = express.Router();
 
 
 router.get('/all', async (req, res) => {
-    response.setHeader('Access-Control-Allow-Credentials', 'true');
+
+    //     Access-Control-Allow-Origin : http://localhost:3000
+    // Access-Control-Allow-Credentials : true
+    // Access-Control-Allow-Methods : GET, POST, OPTIONS
+    // Access-Control-Allow-Headers : Origin, Content-Type, Accept
+
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5000');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, Content-Type, Accept');
+
     res.send("From the backend after patients/all search");
     try {
         //await pool.connect();
