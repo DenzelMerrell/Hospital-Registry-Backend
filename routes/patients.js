@@ -14,6 +14,7 @@ router.get('/all', async (req, res) => {
     }
     catch (err) {
         console.log("ERROR!!: " + err.message);
+        res.send("ERROR!!: " + err.message);
     }
 
 })
